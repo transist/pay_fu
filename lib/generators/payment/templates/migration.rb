@@ -1,6 +1,6 @@
-class CreatePaymentPaymentTransactions < ActiveRecord::Migration
+class CreatePaymentTransactions < ActiveRecord::Migration
   def change
-    create_table :payment_payment_transactions do |t|
+    create_table :payment_transactions do |t|
       t.string :type
       t.string :txn_id
       t.string :txn_type
