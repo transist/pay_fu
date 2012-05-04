@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  txn_id: MyString
+  txn_type: MyString
+  payer_email: MyString
+  payer_id: MyString
+  payment_status: MyString
+  payment_date: 2012-05-04 11:42:08
+  mc_gross: 1
+  mc_fee: 1
+  mc_currency: MyString
+  raw_post: MyString
+
+two:
+  type: 
+  txn_id: MyString
+  txn_type: MyString
+  payer_email: MyString
+  payer_id: MyString
+  payment_status: MyString
+  payment_date: 2012-05-04 11:42:08
+  mc_gross: 1
+  mc_fee: 1
+  mc_currency: MyString
+  raw_post: MyString
