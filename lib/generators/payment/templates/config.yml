@@ -1,6 +1,7 @@
 development:
   paypal:
     mode: "test"
+    email: ""
     login: ""
     password: ""
     signature: ""
@@ -12,6 +13,7 @@ development:
 production:
   paypal:
     mode: "production"
+    email: ""
     login: ""
     password: ""
     signature: ""
