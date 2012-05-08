@@ -7,11 +7,11 @@ require "payment/version"
 Gem::Specification.new do |s|
   s.name        = "payment"
   s.version     = Payment::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Payment."
-  s.description = "TODO: Description of Payment."
+  s.authors     = ["Richard Huange"]
+  s.email       = ["flyerhzm@gmail.com"]
+  s.homepage    = "https://github.com/transist/payment"
+  s.summary     = "payment engine"
+  s.description = "payment engine"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
