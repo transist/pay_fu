@@ -2,7 +2,9 @@ PATH
   remote: .
   specs:
     payment (0.0.1)
-      rails (~> 3.2.3)
+      activemerchant
+      activemerchant_patch_for_china
+      rails
 
 GEM
   remote: http://rubygems.org/
@@ -106,8 +108,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activemerchant
-  activemerchant_patch_for_china
   jquery-rails
   payment!
   sqlite3
