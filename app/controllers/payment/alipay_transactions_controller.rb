@@ -5,11 +5,10 @@ module Payment
     def notify
       notify = Alipay::Notification.new(request.new_post)
       if notify.acknowledge
-        if transaction = AlipayTransaction.find_by_transaction_id(notify.trade_no)
+        if transaction = Payment::AlipayTransaction.find_by_transaction_id(notify.trade_no)
           transaction.update_attributes(transaction_attributes(notify))
         else
-          transaction_attributes(notify).merge!(:transaction_id => notify.trade_no)
-          Transaction.create(transaction_attributes(notify))
+          Payment::AlipayTransaction.create(transaction_attributes(notify))
         end
       end
       render :nothing => true

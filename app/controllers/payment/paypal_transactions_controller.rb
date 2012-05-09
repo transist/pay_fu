@@ -5,11 +5,10 @@ module Payment
     def notify
       notify = Paypal::Notification.new(request.raw_post)
       if notify.acknowledge
-        if transaction = PaypalTransaction.find_by_txn_id(notify.transaction_id)
+        if transaction = Payment::PaypalTransaction.find_by_transaction_id(notify.transaction_id)
           transaction.update_attributes(transaction_attributes(notify))
         else
-          transaction_attributes(notify).merge!(:transaction_id => notify.transaction_id)
-          Transaction.create(transaction_attributes(notify))
+          Payment::PaypalTransaction.create(transaction_attributes(notify))
         end
       end
       render :nothing => true
