@@ -9,7 +9,7 @@ module Payment
         Payment::CONFIGS = YAML.load_file(config_file)[Rails.env]
         paypal_config = Payment::CONFIGS["paypal"]
 
-        ActiveMerchant::Billing::Base.mode = paypal_config["mode"]
+        ActiveMerchant::Billing::Base.mode = paypal_config["mode"].to_sym
         ActiveMerchant::Billing::PaypalGateway.new(
           :login => paypal_config["login"],
           :password => paypal_config["password"],
