@@ -1,5 +1,5 @@
 module Payment
-  class PaypalTransactions < ApplicationController
+  class PaypalTransactionsController < ApplicationController
     include ActiveMerchant::Billing::Integrations
 
     def notify
