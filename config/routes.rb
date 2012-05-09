@@ -1,4 +1,4 @@
 Payment::Engine.routes.draw do
-  match 'payment/paypal_transactions/notify' => 'payment/paypal_transactions#notify'
-  match 'payment/alipay_transactions/notify' => 'payment/alipay_transactions#notify'
+  match '/paypal_transactions/notify' => 'paypal_transactions#notify'
+  match '/alipay_transactions/notify' => 'alipay_transactions#notify'
 end
