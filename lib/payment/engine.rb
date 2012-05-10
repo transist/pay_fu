@@ -6,6 +6,8 @@ module Payment
       config_file = Rails.root.join("config/payment.yml")
       if config_file.file?
         require 'active_merchant'
+        require 'activemerchant_patch_for_china'
+
         Payment::CONFIGS = YAML.load_file(config_file)[Rails.env]
         paypal_config = Payment::CONFIGS["paypal"]
 
@@ -16,20 +18,9 @@ module Payment
           :signature => paypal_config["signature"]
         )
 
-        #ActiveMerchant::Billing::Integrations::Alipay::KEY = Payment::CONFIGS["alipay"]["key"]
-
-        #require 'active_merchant/billing/integrations/action_view_helper'
-
-        #ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper)
-      end
-    end
-
-    initializer "warn when configuration is missing" do
-      config.after_initialize do
-        unless Rails.root.join("config/payment.yml").file?
-          puts "\nPayment config not found. Create a config file at: config/payment.yml"
-          puts "to generate one run: rails generate payment:config\n\n"
-        end
+        ActiveMerchant::Billing::Integrations::Alipay::KEY = Payment::CONFIGS["alipay"]["key"]
+        ActiveMerchant::Billing::Integrations::Alipay::ACCOUNT = Payment::CONFIGS["alipay"]["account"]
+        ActiveMerchant::Billing::Integrations::Alipay::EMAIL = Payment::CONFIGS["alipay"]["email"]
       end
     end
   end
