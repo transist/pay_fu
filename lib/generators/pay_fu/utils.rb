@@ -1,4 +1,4 @@
-module Payment
+module PayFu
   module Generators
     module Utils
       module InstanceMethods

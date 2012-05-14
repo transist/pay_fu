@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Payment::Engine => "/payment"
+  mount PayFu::Engine => "/pay_fu"
 end

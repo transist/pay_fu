@@ -1,14 +1,14 @@
-module Payment
+module PayFu
   class AlipayTransactionsController < ApplicationController
     include ActiveMerchant::Billing::Integrations
 
     def notify
       notify = Alipay::Notification.new(request.new_post)
       if notify.acknowledge
-        if transaction = Payment::AlipayTransaction.find_by_transaction_id(notify.trade_no)
+        if transaction = PayFu::AlipayTransaction.find_by_transaction_id(notify.trade_no)
           transaction.update_attributes(transaction_attributes(notify))
         else
-          Payment::AlipayTransaction.create(transaction_attributes(notify))
+          PayFu::AlipayTransaction.create(transaction_attributes(notify))
         end
       end
       render :nothing => true

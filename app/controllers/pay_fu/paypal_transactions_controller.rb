@@ -1,14 +1,14 @@
-module Payment
+module PayFu
   class PaypalTransactionsController < ApplicationController
     include ActiveMerchant::Billing::Integrations
 
     def notify
       notify = Paypal::Notification.new(request.raw_post)
       if notify.acknowledge
-        if transaction = Payment::PaypalTransaction.find_by_transaction_id(notify.transaction_id)
+        if transaction = PayFu::PaypalTransaction.find_by_transaction_id(notify.transaction_id)
           transaction.update_attributes(transaction_attributes(notify))
         else
-          Payment::PaypalTransaction.create(transaction_attributes(notify))
+          PayFu::PaypalTransaction.create(transaction_attributes(notify))
         end
       end
       render :nothing => true

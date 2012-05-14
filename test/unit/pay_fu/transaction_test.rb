@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Payment
+module PayFu
   class TransactionTest < ActiveSupport::TestCase
     # test "the truth" do
     #   assert true
