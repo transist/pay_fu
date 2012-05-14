@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    payment (0.0.1)
+    pay_fu (0.0.1)
       activemerchant
       activemerchant_patch_for_china
       rails
@@ -109,5 +109,5 @@ PLATFORMS
 
 DEPENDENCIES
   jquery-rails
-  payment!
+  pay_fu!
   sqlite3
