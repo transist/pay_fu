@@ -1,5 +1,8 @@
-pay_fu
-=======
+# pay_fu
+
+a rails payment engine that supports both alipay and paypal.
+
+## Setup
 
 1. add to Gemfile
 
