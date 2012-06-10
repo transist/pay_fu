@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pay_fu (0.0.1)
+    pay_fu (1.0.0)
       activemerchant
       activemerchant_patch_for_china
       rails
@@ -25,13 +25,14 @@ GEM
     active_utils (1.0.3)
       activesupport (>= 2.3.11)
       i18n
-    activemerchant (1.21.0)
+    activemerchant (1.24.0)
       active_utils (>= 1.0.2)
       activesupport (>= 2.3.11)
       builder (>= 2.0.0)
       i18n
       json (>= 1.5.1)
-      money (<= 3.7.1)
+      money
+      nokogiri
     activemerchant_patch_for_china (0.1.6)
       activemerchant (>= 1.4.2)
     activemodel (3.2.3)
@@ -63,9 +64,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
-    money (3.7.1)
+    money (5.0.0)
       i18n (~> 0.4)
+      json
     multi_json (1.3.4)
+    nokogiri (1.5.3)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
