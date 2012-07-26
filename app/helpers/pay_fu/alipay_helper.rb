@@ -24,6 +24,7 @@ module PayFu
         :subject => options[:subject]
       }
       query_params[:body] = options[:body] if options[:body]
+      query_params[:return_url] = options[:return_url] if options[:return_url]
       query_params
     end
   end
