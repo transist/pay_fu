@@ -3,8 +3,8 @@ require 'digest/md5'
 module PayFu
   module AlipayHelper
     def redirect_to_alipay_gateway(options={})
-      query_string = sign_params!(query_params(options)).map {|key, value| "#{key}=#{value}" }.join("&")
-      redirect_to "https://www.alipay.com/cooperate/gateway.do?" + query_string
+      encoded_query_string = sign_params!(query_params(options)).map {|key, value| "#{key}=#{CGI.escape(value)}" }.join("&")
+      redirect_to "https://www.alipay.com/cooperate/gateway.do?" + encoded_query_string
     end
 
     private
@@ -26,8 +26,8 @@ module PayFu
     end
 
     def sign_params!(params)
-      query_string = params.map {|key, value| "#{key}=#{CGI.unescape(value)}" }.join("&")
-      sign = Digest::MD5.hexdigest(query_string + ActiveMerchant::Billing::Integrations::Alipay::KEY)
+      raw_query_string = params.map {|key, value| "#{key}=#{CGI.unescape(value)}" }.join("&")
+      sign = Digest::MD5.hexdigest(raw_query_string + ActiveMerchant::Billing::Integrations::Alipay::KEY)
       params[:sign] = sign
       params[:sign_type] = 'MD5'
       params
