@@ -7,7 +7,7 @@ class CreatePayFuTransactions < ActiveRecord::Migration
       t.string :payment_status
       t.datetime :payment_date
       t.integer :gross
-      t.string :raw_post
+      t.text :raw_post
 
       t.timestamps
     end
